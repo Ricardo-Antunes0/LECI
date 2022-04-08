@@ -1,0 +1,24 @@
+ a) 1ms = 0,001 segundos
+F = 1/0,001 = 1000Hz
+
+20 000 000 / 1000 = 20 000
+
+K = 20000
+
+20MHZ = 20 000 000 HZ -> 1segundo
+Ou seja 20MHZ demora 1s (T = 1s)
+
+b) 
+
+
+
+EX2
+a) queremos que o atraso seja 1ms, ou seja,
+
+
+Parte 2
+
+F = 10 HZ
+20 000 000 / x  = 10
+
+
