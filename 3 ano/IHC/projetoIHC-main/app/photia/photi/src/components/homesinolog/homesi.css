@@ -1,0 +1,313 @@
+
+.homepage{
+    background-color: white;
+    
+}
+.home{
+    
+    background-color: white;
+}
+.phs{
+    
+    color: green;
+    background-color: green;
+}
+
+.fr{
+    margin-top: 100px;
+    justify-content: center;
+    display: flex;
+
+}
+.frph{
+    margin-top: -300px;
+    justify-content: center;
+    display: flex;
+}
+.frph2{
+
+    justify-content: center;
+    display: flex;
+}
+.fraseph{
+    font-weight: 900;
+    border-inline-color: green;
+    
+    color: black;
+    font-size: 25px;
+    border-radius: 0.6em;
+    
+    box-sizing: border-box;
+    padding: 0.5em 2.8em;
+    
+}
+.textph{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 70px;
+
+}
+.textoph{
+    width: 1000px;
+    text-align: center;
+    font-weight: 200;
+    
+    color: black;
+    font-size: 25px;
+    padding: 0.5em 2.8em;
+    border:2px solid black;
+    border-radius: 0.6em;
+}
+
+.frase{
+    font-weight: 900;
+    border-inline-color: green;
+    background-color: white;
+    color: black;
+    font-size: 25px;
+    border-radius: 0.6em;
+    border: 2px solid white;
+    box-sizing: border-box;
+    
+    padding: 0.5em 2.8em;
+}
+.textoApp{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+.texto{
+    text-align: center;
+    margin-top:50px;
+    background-color: rgb(33, 172, 33);
+    font-size: 15px;
+    color: white;
+    width: 800px;
+
+}
+.phts{
+    margin-top: 600px;
+}
+
+.lowbar{
+    margin-top: 600px;
+    
+}
+
+
+.btn {
+
+    box-sizing: border-box;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background-color: rgb(63, 139, 63);
+    border: 3px solid white;
+    border-radius: 0.6em;
+    color: white;
+    
+    text-shadow: 100px solid black;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    
+    font-weight: 700;
+
+}
+.btn {
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  }
+.btn:hover {
+    box-shadow: 0 0 40px 40px white inset;
+    color:black;
+    border-color: green;
+}
+.cima{
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+.meio{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
+
+}
+.casamento{
+    margin-left: -450px;
+    position:absolute;
+}
+.evento{
+    margin-left: 490px;
+
+}
+.batizado{
+    margin-left: -450px;
+    position: absolute;
+}
+.publicidade{
+    margin-left: 500px;
+}
+.meio2{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+.baixo{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+.butadere{
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.btn2:link,
+.btn2:visited {
+    align-items: center;
+
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+}
+
+.btn2:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn2:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn2-white {
+    background-color: green;
+    color: white;
+}
+
+.btn2::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn2-white::after {
+    background-color: green;
+}
+
+.btn2:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn2-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.scroll{
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.ph{
+    color: white;
+    font-size: 700;
+    font-size: 25px;
+}
+.btscroll {
+
+    box-sizing: border-box;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background-color: rgb(63, 139, 63);
+    border: 3px solid white;
+    border-radius: 0.6em;
+    color: white;
+    
+    text-shadow: 100px solid black;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    
+    font-weight: 700;
+
+}
+.btscroll {
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  }
+.btscroll:hover {
+    box-shadow: 0 0 40px 40px white inset;
+    color:black;
+    border-color: green;
+}
+
+.footer{
+    margin-top:100px;
+    width:100%;
+    
+   
+}

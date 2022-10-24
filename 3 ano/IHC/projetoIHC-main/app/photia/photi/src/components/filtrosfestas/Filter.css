@@ -1,0 +1,142 @@
+
+.filterbar{
+    display:flex;
+    position:relative;
+}
+.pesqButton{
+    margin-top: 350px;
+    margin-left: 200px;
+    box-shadow: 0 10px 25px (0,0,0);
+    font-size: 1rem;
+    padding: 0.75em 1.25em;
+    background-color: green;
+    color: white;
+    appearance: none;
+}
+.filterbar .cidades{
+    position: fixed;
+    flex-direction:column;
+    width:30%;
+    height:100%;
+    background: #fff;
+    padding:30 px 10;
+}
+
+.filterbar .cidades h1{
+    color: #5c6664;
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 75px;
+}
+.filterbar .cidades h2{
+    color: #5c6664;
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 50px;
+    margin-bottom: -35px;
+    
+}
+.filterbar .cidades h3{
+    color: #5c6664;
+    text-align: left;
+    margin-bottom: 0px;
+    margin-left: -70px;
+    font-size: 30px;
+}
+
+.filterbar .filtered_content{
+    width:100%;
+    margin-left: 30%;
+    align-items: center;
+}
+.filterbar .filtered_content .header{
+    padding:30px;
+    width:100%;
+    background: #fff;
+    color:#717171;
+    border-bottom:1px solid #e0e4e8;
+    align-items: center;
+}
+
+.filtered_content .header h3{
+    color: #5c6664;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: -30px;
+    margin-left: 10px;
+    font-size: 35px;
+}
+.filterbar .filtered_content .header #format{
+    box-shadow: 0 10px 25px (0,0,0);
+    font-size: 1rem;
+    padding: 0.75em 1.25em;
+    background-color: green;
+    color: white;
+    appearance: none;
+    margin-left: 900px;
+    margin-top: -400px;
+}
+.filterbar .filtered_content .format{
+    width:100%;
+    margin-left: 800px;
+
+    
+}
+.filterbar .cidades .format .input{
+    width:100%;
+    margin-left: 800px;
+    font-size: 20px;
+    font-weight: 50px;
+}
+
+.filterbar .filtered_content {
+    padding:40px;
+    background: #fff;
+    color:#717171;
+    border-bottom:1px solid #e0e4e8;
+    border-left:1px solid #e0e4e8;
+}
+.filterbar .cidades .dropdownn #format{
+
+    margin-left: 250px;
+    margin-top: -200px;
+    margin-bottom: -50px;
+    box-shadow: 0 10px 25px (0,0,0);
+    font-size: 1rem;
+    padding: 0.75em 1.25em;
+    background-color: green;
+    color: white;
+    appearance: none;
+    margin-bottom: 20px;
+}
+
+
+.filterbar .cidades .checkconteiner{
+    width: 9em;
+    height:2.5em;
+    margin-left: 100px;
+}
+
+
+
+.profilepic{
+    margin-right: 15px;
+    position: relative;
+    cursor: pointer;
+
+}
+.profileimg{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.info{
+    margin-left: 200px;
+    margin-top: -80px;
+    margin-bottom: 30px;
+}

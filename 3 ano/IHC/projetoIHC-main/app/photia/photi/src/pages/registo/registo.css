@@ -1,0 +1,167 @@
+.register {
+
+
+  display: flex;
+  align-items: center;
+  position:static;
+  
+}
+
+.registerWrapper {
+  width: 70%;
+  height: 70%;
+  margin-top: 2%;
+  margin-left: 12%;
+}
+
+.regileft{
+  float: left;
+  padding: 10px;
+  display: grid;
+  width: 35%;
+  
+}
+.regicenter{
+  float: left;
+  padding: 10px;
+  display: grid;
+  width: 35%;
+
+}
+.regiright{
+  float: left;
+  padding: 2%;
+  margin-left: 5%;
+  justify-content: center;
+  margin-top: 5%;
+  width: 25%;
+  margin-bottom: 2%;
+  
+}
+
+.registerLogo {
+  font-size: 20px;
+  font-weight: 800;
+  color:white;
+
+}
+
+.registerDesc {
+  font-size: 24px;
+}
+
+.registerBox{
+    height: 100%;
+    padding: 2%;
+    background-color: white;
+    border-radius: 10px;
+
+}
+.registerBox:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.registoContent{
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.registoContent2{
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.registoContentf{
+  margin-left: 15%;
+}
+.notaa{
+  margin-top: 1%;
+}
+.registerInput{
+  
+  height: 120%;
+}
+.registerInput1{
+
+  resize: none;
+ 
+}
+.line{
+  height: 2px;
+  background: black;
+  width: 150px;
+  margin-top: 5.1%;
+  margin-left: 26%;
+  margin-bottom: -0.2%;
+  font-weight: 900;
+}
+.line1{
+  height: 1px;
+  background: black;
+  width: 150px;
+  margin-left: 56%;
+  margin-top: -1.35%;
+  font-weight: 900;
+  
+
+}
+.linetext{
+  margin-left: 42%;
+  margin-top: -1%;
+  font-size: large;
+  font-weight: 700;
+  margin-right: 2%;
+}
+
+
+
+.registerForgot{
+    text-align: center;
+    color: #1775ee;
+}
+
+.registerRegisterButton{
+    margin-top: -5%;
+    width: 60%;
+    align-self: center;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #42b72a;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+.registerButton{
+  height: 50px;
+  width: 20%;
+  align-self: center;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(12, 177, 12);
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  padding:5px;
+  margin-right: 1%;
+  margin-top: 3%;
+}
+
+
+
+.checks{
+  margin-left: 0.8%;
+  margin-top: 5%;
+  font-size:110%;
+  flex-direction:column;
+  justify-content: space-between;
+}
+
+.checkbox{
+  margin-top: 20%
+}
+

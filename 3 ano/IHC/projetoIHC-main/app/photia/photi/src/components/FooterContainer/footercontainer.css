@@ -1,0 +1,8 @@
+.Facebook{
+    display: flex;
+}
+.icons{
+    justify-content: space-between;
+    vertical-align: bottom;
+    
+}

@@ -1,0 +1,72 @@
+
+.rightbar{
+    flex: 2;
+}
+
+
+.Iconn{
+  vertical-align: bottom;
+}
+
+.rightbarInfo{
+  font-size: 20px;
+  text-align: left;
+    border:2px solid black;
+    padding: 1.7em 2.8em;
+    border-radius: 0.6em;
+    margin-bottom: 100%;
+    margin-right: 16%;
+    margin-top: 9%;
+  }
+  
+  .rightbarInfoItem{
+    margin-bottom: 1px;
+    
+  }
+  
+  .rightbarInfoRating{
+    font-weight: 500;
+    margin-right: 15px;
+    font-weight: 700;
+  }
+  
+  .rightbarInfoValue{
+    font-weight: 300;
+  }
+  
+  .btnn{
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    display: block;
+    color: black;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+    border: 2px solid green;
+    padding: 14px 60px;
+    text-transform: uppercase;
+    overflow: hidden;
+    
+  }
+  .btnn::before{
+    background: green;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    transition: all 0.6s ease;
+  }
+  
+  .btnn1::before{
+    width: 0%;
+    height: 100%;
+    color: white;
+  }
+  
+  .btnn1:hover::before{
+    width: 100%;
+    color: white;
+  }
