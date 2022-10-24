@@ -1,0 +1,6 @@
+projectKey=teste2021
+serverUrl=http://localhost:9000
+serverVersion=9.4.0.54424
+dashboardUrl=http://localhost:9000/dashboard?id=teste2021
+ceTaskId=AYGE1pPUP-ByRg5G8aqi
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYGE1pPUP-ByRg5G8aqi

@@ -1,0 +1,78 @@
+x1x2x3x4x5 = 98275
+x6x7x8x9x10 = 98403
+
+a)it contains the IPv4 public class C addr 200.127.140.128/25
+(b)it contains the IPv6 global address 2001:88::/60; 
+(c) it internally uses the range of IPv4 private class C address 10.170.0.0/16 (several class C networks);
+(d) every local network has a private IPv4 and an IPv6 global network
+(e) The connection between R0 and R1 is a private network using the already available private 
+addressing;
+(f) considering the public IPv4 addressing, there are several equipments in the network that need public 
+addressing: 55 servers at the Design network, 29 servers at the Marketing network, and Router1 needs 11 
+IPv4 public addresses to configure NAT/PAT mechanisms;
+(g) The Internet is simulated with the IPv4 network 203.0.0.0/24 and the IPv6 network 2300:A:A:A::/64
+
+
+Tipo:	     	 Endereco:
+ipv4 publico: 	 200.127.140.128/25
+ipv4 privado: 	 10.170.0.0/16
+ipv6 Global :  	 2001:88::/60
+
+
+/24 = 255.255.255.0
+/26 = 255.255.255.192
+/27 = 255.255.255.224
+/30 = 255.255.255.252
+
+ligacao entre R0 e R1:
+R0: 10.170.2.1/30
+R1: 10.170.2.2/30
+
+
+R0 na privada- interface FE 0/0: design
+		ip address 10.170.0.254/24  privado
+		ip address 200.127.140.190/26 secondary (publico)
+		ipv6 address 2001:88::1/64
+
+	   - interface FE 0/1 : marketing
+		ip address 10.170.1.254/24 (privado)
+		ip address 200.127.140.222/27 secondary (publico)
+		ipv6 address 2001:88:0:1::1/64
+
+internet
+ISP:
+ipv4 public- 203.0.0.1/24
+ipv6-  2300:a:a:a::1/64
+PC1: 
+ipv4 public- 203.0.0.2/24
+ipv6-  2300:a:a:a::2/64
+
+
+marketing priv ip 10.170.1.1/24 
+		gateaway 10.170.1.254
+
+marketing public ip 200.127.140.193/27
+		gateaway 200.127.140.222 
+
+
+DesignPriv ip pc = 10.170.0.1/24
+		gateaway 10.170.0.254
+
+DesignPublic ip 200.127.140.129/26 
+		gateaway 200.127.140.190/26
+
+IPV6:----------------------
+ISP vai ser o 1 para a interface que liga ao switch 3 e o ivp6 .2 no pc1
+no R0 temos o .1
+design priv 2001:0088::2
+design public 2001:0088::3
+marketing priv 2001:0088:0:1:2
+marketing public 2001:0088:0:1:3
+
+
+
+Duvidas:
+entre o R1 e ISP o ipv6 tem de ser 2200:3:4:4::2 e 2200:3:4:4::1 ou devia ser 2200:3:4:4::5 e 2200:3:4:4::6, pois o ipv6 la começa no 2200:3:4:4::4
+
+
+
