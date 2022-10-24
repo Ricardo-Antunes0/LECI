@@ -1,0 +1,15 @@
+GAS LISTING Ex3.s 			page 1
+
+
+DEFINED SYMBOLS
+               Ex3.s:1      *ABS*:000000000000bf88 SFR_BASE_HI
+               Ex3.s:2      *ABS*:0000000000006050 PORTB
+               Ex3.s:3      *ABS*:0000000000006040 TRISB
+               Ex3.s:4      *ABS*:0000000000006100 TRISE
+               Ex3.s:5      *ABS*:0000000000006120 LATE
+               Ex3.s:6      *ABS*:00000000000060c0 TRISD
+               Ex3.s:7      *ABS*:00000000000060d0 PORTD
+               Ex3.s:12     .text:0000000000000000 main
+               Ex3.s:27     .text:000000000000001c loop
+
+NO UNDEFINED SYMBOLS

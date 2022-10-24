@@ -1,0 +1,96 @@
+{% extends "primary.html" %} {% block title %}Home{% endblock %}
+{% block content%}
+<form action="/search" class = "form-inline my-2 my-lg-0" method="GET">
+    <input class ="form-control mr-sm-2" type="search" placeholder="Search" name='q'>
+    <button class="btn btn-outline-sucess my-2 my-sm-0" type="submit">Search</button>
+</form>
+<div class="row">
+  <a href="#newModal" data-toggle="modal" class="btn btn-primary" title="New publication">
+    <i class="glyphicon glyphicon-plus-sign"></i> New publication
+  </a>
+</div>
+
+<br />
+<div class="pageTitle" align="center"><h1>Publications</h1> </div>
+<br />
+<div class="row pad">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-lg-4"><font size="+2">Title</font></div>
+                    <div class="col-lg-4"><font size="+2">Description</font></div>
+                    <div class="col-lg-4"><font size="+2">Last Post</font></div>
+                </div>
+            </div>
+            {% for publication in publications %}
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h3 class="panel-title">
+                        <font size="+2">
+                            <a href="{{ url_for('views.publication', publication_id=publication.id) }}" style="font-size: 18px;" class="blue">
+                                {{ publication.title }}
+                            </a>
+                        </font>
+                        </h3>
+                    </div>
+                    <div class="col-lg-4">
+                    <font size="+1">
+                        <p>
+                            <em>
+                                {{ publication.description }}
+                            </em>
+                        </p>
+                    </font>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <p>
+                            <i class="glyphicon glyphicon-calendar"></i> 
+                            <font size="+1">{{ publication.lastDate().strftime('%d %B, %Y') }} &nbsp;</font>
+                            <a href="{{ url_for('views.publication', publication_id=publication.id) }}">
+                                <i class="glyphicon glyphicon-comment"></i> Reply
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="newModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">New publication</h4>
+            </div>
+            <div class="modal-body">
+                <form method="POST" role="form">
+                    {{ form.csrf_token }}
+                    <div class="form-group">
+                       
+                        {{ form.title(class="form-control", placeholder="Enter title") }}
+                        <br />
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.description(class="form-control", placeholder="Enter description") }}
+                        <br />
+                    </div>
+                
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+{% endblock %}

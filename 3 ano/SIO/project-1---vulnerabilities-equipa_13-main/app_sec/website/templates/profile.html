@@ -1,0 +1,23 @@
+{% extends "primary.html" %} {% block title %}Profile{% endblock %}
+{% block content %}
+<h1 align = "center">Profile</h1>
+<div class = "profile">
+
+    <h3 class="">My Profile Info</h3>
+    
+    <div class="panel-body">
+                Basic Info
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            Name: <strong class="pull-right">{{ current_user.full_name }}</strong>
+        </li>
+        <li class="list-group-item">
+            Email: <strong class="pull-right">{{ current_user.email }}</strong>
+        </li>
+        
+
+    </div>
+</div>
+{% endblock %}
+
