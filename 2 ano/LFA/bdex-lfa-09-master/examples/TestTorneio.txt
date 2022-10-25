@@ -1,0 +1,26 @@
+Table torneio = create_table ["Participantes"(Text), "Prova 1"(Text), "Prova 2"(Text)];
+add_line torneio ["Ricardo", "", ""];
+
+put_value torneio ["Prova 1"(Text), 0] : ["1º lugar"];
+put_value torneio ["Prova 2"(Text), 0] : ["2º lugar"];
+
+add_line torneio ["Diogo", "3º lugar", "3º lugar"];
+add_line torneio 1 ["Afonso", "2º lugar", "1º lugar"];
+print torneio;
+
+
+print Table tempos = create_table ["Tempo 1"(Real), "Tempo 2"(Real)] : [21.2 , 22.0, 27.8, 26.9, inputReal, inputReal];
+
+Iterator tempo1 = iterator tempos column ["Tempo 1"(Real)];
+Iterator tempo2 = iterator tempos column ["Tempo 2"(Real)];
+Real tmp1 = tempo1.next;
+Real tmp2 = tempo2.next;
+Real medR = (tmp1 + tmp2)/2;
+tmp1 = tempo1.next;
+tmp2 = tempo2.next;
+Real medD = (tmp1 + tmp2)/2;
+tmp1 = tempo1.next;
+tmp2 = tempo2.next;
+Real medA = (tmp1 + tmp2)/2;
+
+print Table all  = join torneio , tempos , create_table ["Media Tempo"(Real)] : [ medR, medD, medA];

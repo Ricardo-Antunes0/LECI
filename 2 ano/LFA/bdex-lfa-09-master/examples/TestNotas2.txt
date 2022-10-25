@@ -1,0 +1,6 @@
+load finalTable "SemExame.csv";
+
+add_column finalTable last ["Exame"(Real)] [(13+14.2+15.6)/3 , (5.4+18.5+10.3)/3];
+print finalTable;
+
+save finalTable "ComExame.csv";

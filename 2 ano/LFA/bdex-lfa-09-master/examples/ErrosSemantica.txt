@@ -1,0 +1,8 @@
+Table t1 = create_table ["C0"(integer),"C1"(Real),"C2"(Texto)];
+Table 1 = create_table ["C0"(integer),"C1"(Real),"C2"(Texto)];
+add_line t1 2;
+add_column table1 after [1] [0];
+put_value t1 ["C0"(Double), 1] : [ 2+2 ] ;
+remove_column t2 [intruso1(Text)];
+x = extract from t5 columns["C1"(Real),"C2"(Text)] ;
+print x 

@@ -1,0 +1,27 @@
+Table table1 = create_table ["Nome"(Text), "Nmec"(Int), "Nota1"(Real), "Nota2"(Real), "NotaFinal"(Real)];
+add_line table1 ["Diogo.F", 98403, 12.2 , 14.1, 13.2 ];
+add_line table1 ["Ricardo ", 98275, 0.5 , 0.5+2.0, 20.0+19.1 ];
+add_line table1 ["Hugo", 98502, 20 , 19.5, 10];
+add_line table1 ["Tiago", 98459, 20 , 210/10.0, 21.1 ];
+add_line table1 ["Diogo.S", 98393, 10 , 10, 9.5 ];
+print table1;
+
+add_column table1 after ["Nome"(Text)] ["Ano de matrícula"(Int)] [2001, 0, 2000, 2001, 2002];
+put_value table1 ["Ano de matrícula"(Int), 1 ] : [2000+5];
+Real x =  put_value table1 ["Nota1"(Real), 2 ] : [15.0+1];
+print table1;
+print "Nota Antiga"; print x;
+
+print "Alunos mec 98459 e 98393";
+Table z = extract from table1 contains [98459,98393];
+Iterator it1 = iterator z column ["Nota1"(Real)];
+print "Primeira Nota 98459: "; print Real nota1 = it1.next;
+nota1 = it1.next;
+print "Primeira Nota 98393: "; print nota1;
+
+print "Alunos inscritos";
+Table y = extract from table1 columns.["Nome"(Text)];
+print y;
+
+print z;
+save z "SemExame.csv";

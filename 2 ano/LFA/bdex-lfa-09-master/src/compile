@@ -1,0 +1,7 @@
+#!/bin/bash
+
+javac Tupple.java
+antlr4 -visitor Table.g4
+javac Table*.java
+antlr4 -visitor Bdex.g4
+javac Bdex*.java

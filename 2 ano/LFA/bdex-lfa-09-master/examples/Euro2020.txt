@@ -1,0 +1,176 @@
+Table grupoA = create_table ["Seleção"(Text),"Pontos"(Int),"Golos Marcados"(Int),"Golos Sofridos"(Int)];
+Table grupoB = create_table ["Seleção"(Text),"Pontos"(Int),"Golos Marcados"(Int),"Golos Sofridos"(Int)];
+Table grupoC = create_table ["Seleção"(Text),"Pontos"(Int),"Golos Marcados"(Int),"Golos Sofridos"(Int)];
+Table grupoD = create_table ["Seleção"(Text),"Pontos"(Int),"Golos Marcados"(Int),"Golos Sofridos"(Int)];
+Table grupoE = create_table ["Seleção"(Text),"Pontos"(Int),"Golos Marcados"(Int),"Golos Sofridos"(Int)];
+Table grupoF = create_table ["Seleção"(Text),"Pontos"(Int),"Golos Marcados"(Int)];
+
+Tupple gA=("Suíça", "Itália", "Turquia","País de Gales");
+add_line grupoA [gA(0),6,3,1];
+add_line grupoA [gA(1),9,6,1];
+add_line grupoA [gA(2),0,1,5];
+add_line grupoA 2 [gA(3),3,2,5];
+
+Tupple gB=("Bélgica", "Rússia", "Finlândia","Dinamarca");
+add_line grupoB 0 [gB(0),9,3,1];
+add_line grupoB 1 [gB(1),6,6,1];
+add_line grupoB 3 [gB(2),0,1,5];
+add_line grupoB 2 [gB(3),3,2,5];
+
+Tupple gC=("Países Baixos", "Áustria", "Ucrânia","Macedónia");
+add_line grupoC [gC(0),7,3,1];
+add_line grupoC [gC(1),4,6,1];
+add_line grupoC [gC(2),5,1,5];
+add_line grupoC [gC(3),0,2,5];
+
+Tupple gD=("Escócia", "Inglalterra", "Croácia","Rep.Checa");
+add_line grupoD 1[gD(0),1,3,1];
+add_line grupoD 0[gD(1),9,6,1];
+add_line grupoD 1[gD(2),4,1,5];
+add_line grupoD 2[gD(3),3,5,5];
+
+Tupple gE=("Eslováquia", "Polónia", "Suécia","Espanha");
+add_line grupoE 1 [gE(0),4,3,1];
+add_line grupoE 0 [gE(1),9,6,1];
+add_line grupoE 4 [gE(2),0,1,5];
+add_line grupoE 2 [gE(3),3,3,5];
+
+add_line grupoF 0+2 ["Portugal",4,5];
+add_line grupoF 0+1 ["França",5,6];
+add_line grupoF 0+4 ["Hungria",1,1];
+add_line grupoF 0 ["Alemanha",6,2];
+
+add_column grupoF last ["Golos Sofridos"(Int)] [2+3,1+3,2+1+4,0];
+
+print "Grupo A"; print grupoA;
+print "Grupo B"; print grupoB;
+print "Grupo C"; print grupoC;
+print "Grupo D"; print grupoD;
+print "Grupo E"; print grupoE;
+print "Grupo F"; print grupoF;
+
+
+#
+remove_line grupoA 2;
+remove_line grupoB 3;
+remove_line grupoC 3;
+remove_line grupoD 1;
+remove_line grupoE 3;
+remove_line grupoF 2;#
+
+Table Terceiros;
+Terceiros = join extract from grupoA line.[2] , extract from grupoB line.[2] , extract from grupoC line.[2] , extract from grupoD line.[2] , extract from grupoE line.[2] , extract from grupoF line.[2];
+print "Tabela Terceiros";
+print Terceiros;
+
+
+Table oitavos1 = create_table["Seleção"(Text)];
+add_line oitavos1  ["Portugal"];
+add_line oitavos1  ["Bélgica"];
+add_column oitavos1 last["Vencedor"(Text)] ["Portugal"];
+save oitavos1 "jogo1";
+
+Table oitavos2 = create_table["Seleção"(Text)];
+add_line oitavos2  ["Itália"];
+add_line oitavos2  ["Ucrânia"];
+add_column oitavos2 after ["Seleção"(Text)] ["Vencedor"(Text)]["Itália"];
+
+Table oitavos3 = create_table["Seleção"(Text)];
+add_line oitavos3  ["Alemanha"];
+add_line oitavos3  ["Áustria"];
+add_column oitavos3 after ["Seleção"(Text)] ["Vencedor"(Text)] ["Alemanha"];
+
+Table oitavos4 = create_table["Seleção"(Text)];
+add_line oitavos4  ["Rep.checa"];
+add_line oitavos4  ["Espanha"];
+add_column  oitavos4 after ["Seleção"(Text)] ["Vencedor"(Text)] ["Espanha"];
+
+Table oitavos5 = create_table["Seleção"(Text)];
+add_line oitavos5 ["Suécia"];
+add_line oitavos5 ["Croácia"];
+add_column  oitavos5 last ["Vencedor"(Text)] ["Suécia"];
+
+Table oitavos6 = create_table["Seleção"(Text)];
+add_line oitavos6 ["Inglaterra"];
+add_line oitavos6  ["França"];
+add_column  oitavos6 last ["Vencedor"(Text)]["França"];
+
+Table oitavos7 = create_table["Seleção"(Text)];
+add_line oitavos7 ["Países Baixos"];
+add_line oitavos7  ["Polónia"];
+add_column  oitavos7 last["Vencedor"(Text)]["Países Baixos"];
+
+Table oitavos8 = create_table["Seleção"(Text)];
+add_line oitavos8  ["Suíça"];
+add_line oitavos8  ["Rússia"];
+add_column  oitavos8 last["Vencedor"(Text)] ["Suíça"];
+
+print "1º jogo";print oitavos1;
+print "2º jogo";print oitavos2;
+print "3º jogo";print oitavos3;
+print "4º jogo";print oitavos4;
+print "5º jogo";print oitavos5;
+print "6º jogo";print oitavos6;
+print "7º jogo";print oitavos7;
+print "8º jogo";print oitavos8;
+
+Table quartos1 = create_table["Seleção"(Text)];
+add_line quartos1 ["Portugal"];
+add_line quartos1  ["Itália"];
+add_column  quartos1 last["Vencedor"(Text)] ["Portugal"];
+add_column  quartos1 after ["Vencedor"(Text)] ["Resultado"(Text)] ["1-0"];
+save quartos1 "jogo2";
+print "1º Quarto";
+print quartos1;
+
+Table quartos2 = create_table["Seleção"(Text)];
+add_line quartos2  ["Alemanha"];
+add_line quartos2  ["Espanha"];
+add_column  quartos2 last["Vencedor"(Text)] ["Alemanha"];
+add_column  quartos2 after ["Vencedor"(Text)] ["Resultado"(Text)] ["3-2"];
+print "2º Quarto";
+print quartos2;
+
+Table quartos3 = create_table["Seleção"(Text)];
+add_line quartos3  ["Suécia"];
+add_line quartos3  ["França"];
+add_column  quartos3 last["Vencedor"(Text)] ["França"];
+add_column  quartos3 after ["Vencedor"(Text)] ["Resultado"(Text)] ["0-4"];
+print "3º Quarto";
+print quartos3;
+
+Table quartos4 = create_table["Seleção"(Text)];
+add_line quartos4  ["Países Baixos"];
+add_line quartos4  ["Suíça"];
+add_column  quartos4 last["Vencedor"(Text)] ["Países Baixos"];
+add_column  quartos4 after ["Vencedor"(Text)] ["Resultado"(Text)] ["3-1"];
+print "4º Quarto";
+print quartos4;
+
+Table meias1 = create_table["Seleção"(Text)];
+add_line meias1  ["Portugal"];
+add_line meias1  ["Alemanha"];
+add_column  meias1 last["Vencedor"(Text)] ["Portugal"];
+add_column  meias1 after ["Vencedor"(Text)] ["Resultado"(Text)] ["5-0"];
+print meias1;
+
+
+Table meias2 = create_table["Seleção"(Text)];
+add_line meias2  ["França"];
+add_line meias2  ["Países Baixos"];
+add_column  meias2 last["Vencedor"(Text)] ["França"];
+add_column  meias2 after ["Vencedor"(Text)] ["Resultado"(Text)] ["3-1"];
+print meias2;
+
+meias1 = extract from meias1 contains ["Portugal"];
+meias1 = extract from meias1 columns.["Seleção"(Text)];
+meias2 = extract from meias2 contains ["França"];
+meias2 = extract from meias2 columns.["Seleção"(Text)];
+
+Table Final = join meias1,meias2;
+print Final;
+print "Escolha o vencedor do Euro2020!";
+add_column Final last["Vencedor"(Text)][inputText];
+print Final;
+
+

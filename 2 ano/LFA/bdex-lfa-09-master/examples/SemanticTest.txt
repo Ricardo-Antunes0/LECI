@@ -1,0 +1,18 @@
+Table t1 = create_table ["Dia"(Int), "Temperatura"(Real)] [2];
+print t1;
+
+add_column t1 after ["Dia"(Int)] ["Cidade"(Text)] ["Aveiro", "Lisboa"];
+add_line t1 [1, "Porto", 23.9];
+print t1;
+print extract from t1 columns.["Temperatura"(Real)];
+print extract from t1 columns interval.["Dia"(Int), "Temperatura"(Real)];
+print extract from t1 line.[0+0, 1]; 
+
+Table t2 = create_table ["Cidade"(Text), "Numero"(Int)] [3];
+print t2;
+add_column t2 before ["Numero"(Int)] ["String"(Text)] ["Olelele", "Olelele","Olelele"];
+add_line t2 [ "opaaa", "Aveiro" ,3];
+print t2;
+
+Tupple tupple = (1, 2, "abcd", 2.3);
+print tupple(0) + 1;

@@ -1,0 +1,253 @@
+typeValue ::= [
+   "Int":"int",
+   "Real":"double",
+   "Boolean":"Boolean",
+   "Text":"String",
+   "Table":"Table",
+   "Iterator":"Iterator",
+   "Tupple":"Tupple",
+   "Object":"Object",
+   default:"null"
+]
+
+booleanValue ::= [
+   "true":"true",
+   "false":"false",
+   default:"null"
+]
+
+scannerValue ::= [
+   "Int":"Int",
+   "Real":"Double",
+   "Text":"Line",
+   default:""
+]
+
+module(name,stat) ::= <<
+import java.io.*;
+import java.util.*;
+import Structure.*;
+
+public class <name> {
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      int index;
+      <stats(stat)>
+   }
+}
+
+>>
+
+stats(stat) ::= <<
+<if(stat)><stat; separator="\n"><endif>
+>>
+
+assign(stat,var,value) ::= <<
+<stats(stat)>
+<var> = <value>;
+>>
+
+init(value) ::= "<if(value)> = <value><endif>"
+
+decl(type,var,value) ::= <<
+<if(type)>
+<typeValue.(type)> <var><init(value)>;
+<else>
+<var><init(value)>;
+<endif>
+>>
+
+print(stat,type,expr) ::= <<
+<stats(stat)>
+System.out.println(<expr>);
+>>
+
+binaryExpression(stat,type,var,e1,op,e2) ::= <<
+<stats(stat)>
+<decl(type,var,[e1," ",op," ",e2])>
+>>
+
+preIncrement(type, var, preffix) ::= <<
+<preffix><var>;
+>>
+
+postIncrement(type, var, suffix) ::= <<
+<var><suffix>;
+>>
+
+input(type, var) ::= <<
+System.out.print("input<type> -> ");
+<typeValue.(type)> <var> = sc.next<scannerValue.(type)>();
+>>
+
+concat(newVar, var, expr) ::= "String <newVar> = <var>.concat(<expr>);"
+
+newColumn(var, name, type) ::= "Column <var> = new Column(<name>, \"<type>\");"
+
+saveTable(tablename, filename, f, pw, columnNames, firstLine, tableMap, i, c, line, e) ::= <<
+try {
+    File <f> = new File(<filename>);
+    PrintWriter <pw> = new PrintWriter(<f>);
+    List\<Column> <columnNames> = <tablename>.getNames();
+    String <firstLine> = <columnNames>.stream().map(Column::getName).collect(java.util.stream.Collectors.joining(","));
+    <pw>.write(<firstLine> + "\n");
+    Map\<Column, ArrayList\<Object\>> <tableMap> = <tablename>.getMap();
+    for (int <i> = 0; <i> \< <tablename>.getNumberLines(); <i>++) {
+       java.lang.StringBuilder <line> = new java.lang.StringBuilder();
+       for(Column <c>: <columnNames>)
+          <line>.append(<tableMap>.get(<c>).get(<i>)).append(",");
+       <pw>.write(<line>.substring(0, <line>.length()-1) + "\n");
+    }
+    <pw>.write('\n');
+    <pw>.close();
+} catch (IOException <e>) {
+    System.err.println("Unable to write to file!");
+}
+>>
+
+loadTable(tablename, filename, var) ::= <<
+String[] <var> = new String[1];
+<var>[0] = <filename>;
+Table <tablename> = TableMain.load(<var>);
+>>
+
+printTable(stat, tablename) ::= <<
+<stats(stat)>
+<tablename>.printTable();
+>>
+
+columnArrayInit(var, size) ::= "Column[] <var> = new Column[<size>];"
+
+arrayAdd(var, index, value) ::= "<var>[<index>] = <value>;"
+
+objectArrayInit(var, size) ::= "Object[] <var> = new Object[<size>];"
+
+tableArrayInit(var, size) ::= "Table[] <var> = new Table[<size>];"
+
+createTable(tablename, columnArray, numLines, valueArray) ::= <<
+<if(numLines)>
+Table <tablename> = new Table(<columnArray>, <numLines>);
+<elseif(valueArray)>
+Table <tablename> = new Table(<columnArray>, <valueArray>);
+<else>
+Table <tablename> = new Table(<columnArray>);
+<endif>
+>>
+
+addLine(tablename, lineIndex, valuesVar) ::= <<
+<if(valuesVar)>
+<if(lineIndex)>
+<tablename>.addLineIndex(<lineIndex>, <valuesVar>);
+<else>
+<tablename>.addLineLast(<valuesVar>);
+<endif>
+<else>
+<if(lineIndex)>
+<tablename>.addLineIndex(<lineIndex>);
+<else>
+<tablename>.addLineLast();
+<endif>
+<endif>
+>>
+
+addColumnBeforePlace(tablename, placeColumn, toColumn, values) ::= <<
+index = <tablename>.getNames().indexOf(<placeColumn>);
+<if(values)>
+if(index == 0)
+    <tablename>.addColumnIndex(<toColumn>, <values>, index);
+else
+    <tablename>.addColumnIndex(<toColumn>, <values>, index-1);
+<else>
+if(index == 0)
+    <tablename>.addColumnIndex(<toColumn>, index);
+else
+    <tablename>.addColumnIndex(<toColumn>, index-1);
+<endif>
+>>
+
+addColumnAfterPlace(tablename, placeColumn, toColumn, values) ::= <<
+index = <tablename>.getNames().indexOf(<placeColumn>);
+<if(values)>
+<tablename>.addColumnIndex(<toColumn>, <values>, index+1);
+<else>
+<tablename>.addColumnIndex(<toColumn>, index+1);
+<endif>
+>>
+
+addColumnFLFirst(tablename, toColumn, values) ::= <<
+<if(values)>
+<tablename>.addColumnIndex(<toColumn>, <values>, 0);
+<else>
+<tablename>.addColumnIndex(<toColumn>, 0);
+<endif>
+>>
+
+addColumnFLNoWhere(tablename, toColumn, values) ::= <<
+<if(values)>
+<tablename>.addColumnLast(<toColumn>, <values>);
+<else>
+<tablename>.addColumnLast(<toColumn>);
+<endif>
+>>
+
+removeColumn(tablename, column) ::= "<tablename>.removeColumn(<column>);"
+
+removeLine(tablename, index) ::= <<
+<if(index)>
+<tablename>.removeLine(<index>);
+<else>
+<tablename>.removeLineLast();
+<endif>
+>>
+
+extractTableColumnsAnd2Expr(returnTable, tablename, columnArray, e1, e2) ::= <<
+<if(columnArray)>
+<if(e1)>
+Table <returnTable> = <tablename>.extractBoth(<columnArray>, <e1>, <e2>);
+<else>
+Table <returnTable> = <tablename>.extractColumns(<columnArray>);
+<endif>
+<else>
+Table<returnTable> = <tablename>.extractLine(<e1>,<e2>);
+<endif>
+>>
+
+extractTable2Column2Expr(returnTable, tablename, c1, c2, e1, e2) ::= <<
+<if(e1)>
+Table <returnTable> = <tablename>.extractBoth(<c1>, <c2>, <e1>, <e2>);
+<else>
+Table <returnTable> = <tablename>.extractColumns(<c1>, <c2>);
+<endif>
+>>
+
+extractTableLines(returnTable, tablename, values, integerArray, loopVar) ::= <<
+Integer[] <integerArray> = new Integer[<values>.length];
+for(int <loopVar> = 0; <loopVar> \< <values>.length; <loopVar>++)
+    <integerArray>[<loopVar>] = (Integer) <values>[<loopVar>];
+Table <returnTable> = <tablename>.extractLine(<integerArray>);
+>>
+
+extractTableContains(returnTable, tablename, values) ::= "Table <returnTable> = <tablename>.extractContains(<values>);"
+
+putValue(tablename, column, line, value, returnVar) ::= "Object <returnVar> = <tablename>.putValue(<column>, <line>, <value>);"
+
+joinTables(returnTable, tableArray) ::= "Table <returnTable> = Table.joinTables(<tableArray>);"
+
+declarationTupple(returnTupple, values, types) ::= "Tupple <returnTupple> = new Tupple (<values>, <types>);"
+
+list(var,type) ::= "ArrayList\< <type> > <var> = new ArrayList\<>();"
+
+listAdd(varList, var) ::= "<varList>.add(<var>);"
+
+iteratorTable(var, tablename) ::= "Iterator <var> = <tablename>.iterator();"
+
+iteratorLine(var, tablename, line) ::= "Iterator <var> = <tablename>.lineIterator(<line>);"
+
+iteratorColumn(var, tablename, column) ::= "Iterator <var> = <tablename>.columnIterator(<column>);"
+
+iterate(var) ::= "<var>.next();"
+
+printIterate(var, value) ::= <<
+Object <var> = <value>
+System.out.println(<var>);
+>>
