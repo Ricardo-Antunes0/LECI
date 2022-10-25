@@ -1,0 +1,156 @@
+.registe {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f2f5;
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  background-image: backhome1;
+ 
+  
+}
+.regileft{
+  flex: 1.5;
+}
+.regicenter{
+  flex:1.5;
+}
+.regiright{
+  flex:1;
+}
+
+
+.registerWrappe {
+  margin-top:10%;
+  width: 50%;
+  height: 100%;
+  display: block;
+
+}
+
+.registerLef{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  margin-left: 10%;
+  
+}
+
+
+
+.registerBo{
+    width: 100%;
+    height:55%;
+    padding: 5%;
+    background-color: white;
+    border-radius: 0.6em;
+    display: flex;
+    flex-direction: column;
+    justify-content:left;
+    
+}
+
+.registerInpu{
+
+    width: 100%;
+    
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgb(155, 153, 153);
+    font-size: 18px;
+
+   
+}
+
+.registerInpu:focus{
+    outline: none;
+    border-bottom: 2px solid blue;
+    
+}
+.registerInpu:hover{
+  border-bottom: 2px solid black;
+}
+.butsr{
+  display: flex;
+  align-items:flex-end;
+  justify-content: space-between;
+}
+.registerButto{
+    margin-top:5%;
+    width: 20%;
+
+    border-radius: 0.3em;
+    border: none;
+    background-color: rgb(12, 177, 12);
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    padding:5px;
+
+}
+
+.registerForgo{
+    text-align: center;
+    color: #1775ee;
+}
+
+.registerRegisterButto{
+
+    width: 60%;
+    align-self: center;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #42b72a;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.registoConten{
+  margin-top: 2%;
+  text-align: left;
+  font-weight: 1000;
+}
+
+
+.CheckBoxContaine{
+  font-size:110%;
+  height: 200px;
+  width: 200px;
+  vertical-align: middle;
+  padding: 10px;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+}
+
+  .login{
+    font-weight: 500;
+    font-size:200%;
+    align-self: center;
+  }
+
+
+.Forgot{
+  text-align: end;
+  color: black;
+}
+
+.linetext1{
+  margin-left: -1%;
+  margin-top: 10%;
+  padding: 1%;
+  
+}
+.rare{
+
+}
+
+.reg{
+  display: block;
+}
