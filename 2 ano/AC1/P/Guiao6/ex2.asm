@@ -1,35 +1,35 @@
-.data
-.eqv size, 3
-.eqv print_string, 4
-.eqv print_char, 11
-str1: .asciiz "Array" 
-str2: .asciiz "de"
-str3: .asciiz "ponteiros"
-str4: .asciiz "\n"
-array: .word str1,str2,str3
+	.data
+	.eqv size, 3
+str:	.asciiz "Array"
+str1:	.asciiz "De"
+str2:	.asciiz "Ponteiros"
 
-.text
-.globl main
+array:	.word str, str1, str2
+	.text
+	.globl main
 main:
 
-la $t0, array # p = & array[0]
-li $t1, size # registo = size 
-sll $t1, $t1, 2
-addu $t2, $t0, $t1 #pultimo = array + (size*4)
+	la $t0, array	# p = array
+	li $t1, size
+	sll $t1, $t1, 2	#size * 4
+	addu $t1, $t0, $t1	# pultimo = array + size
+	
 
-for: 	bge $t0, $t2, endfor
+for:	bge $t0, $t1, endfor
+
 	lw $a0, 0($t0)
 	li $v0, 4
 	syscall
-	
-	la $a0, str4
+
+	li $a0, ' '
 	li $v0, 11
 	syscall
 
-	addi $t0, $t0, 4
+	addi $t0, $t0, 4	# p++
 	j for
 
-endfor:		jr $ra
+endfor:	jr $ra
 
 
+	
 

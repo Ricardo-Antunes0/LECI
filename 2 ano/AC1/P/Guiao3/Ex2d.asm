@@ -1,44 +1,47 @@
-.data
-str1: .asciiz "Introduza um numero: "
-str2: .asciiz "O valor em binario e': "
-.eqv print_string, 4
-.eqv read_int, 5
-.eqv print_char, 11
-
-.text
-.globl main
-
+	.data
+str1:	.asciiz "Introduza um numero"
+str2: 	.asciiz "\nO valor em binario e: "	
+	.text
+	.globl main
 main:
-li $t5, 0 #flag = 0
-lui $t0, 0 #value
-lui $t1, 0 # bit
-lui $t2, 0 # i 
-
-la $a0, str1
-li $v0, 4 #Print_string(Introduza um numero)
-syscall
-
-li $v0, 5
-syscall
-move $t0, $v0 #value = read_int()
-
-la $a0, str2
-li $v0, 4
-syscall
-
-for: 
-	bge $t2, 32, endFor
-
-	andi $t3, $t1, 0x80000000 #(value & 0x80000000)
-	srl $t1, $t0, 31 #bit = (value & 0x80000000) >> 31;
+	li $t0, 0		# i = 0
+	li $t9, 0		# flag = 0
 	
-	if: bne $t5, 1, if2 
-	    beq $t1, 0, endIf 
+	la $a0, str1
+	li $v0, 4		#print_int(Introduza um numero)
+	syscall	
 	
-	addi $t4, $t1, 0x30 # 0x30 + bit
-	move $a0, $t4  #argumento é (0x30 + bit)
-	li $v0, 11  #Print_char()
+	li $v0, 5
+	syscall
+	move $t1, $v0		# value = read_int()
+	
+	la $a0, str2
+	li $v0, 4		# print_str(O valor em binario e: ")
+	syscall
+	
+for:	bge $t0, 32, endfor
+	srl $t2, $t1, 31	#bit = value >> 31
+
+if: 	beq $t9, 1 then
+	bnez $t2, then
+	j endif
+then:
+	li $t9, 1		# flag = 1
+	
+if1: 	rem $t4, $t0, 4		# if( i% 4 == 0)
+	bnez $t4, endif1
+	li $a0, ' '		#print_char(' ')
+	li $v0, 11
 	syscall
 
-endFor:
-jr $ra
+endif1: addi $a0, $t2, 0x30	#print_Char(0x30 + bit)
+	li $v0, 11
+	syscall
+	
+endif:	sll $t1, $t1, 1		# value = value << 1
+	addi $t0, $t0, 1	#i++
+	j for
+	
+endfor:
+	jr $ra
+	

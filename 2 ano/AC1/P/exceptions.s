@@ -76,17 +76,13 @@ pexit:   .asciiz "\nProgram terminated with exit code "
 # This is the exception vector address for MIPS-1 (R2000):
 # .ktext 0x80000080
 # This is the exception vector address for MIPS32:
- .ktext 0x80000180
+   .ktext 0x80000180
 # Select the appropriate one for the mode in which SPIM is compiled.
    move  $k1,$at     # Save $at
    la    $at,s1
    sw    $v0,0($at)  # Not re-entrant and we can't trust $sp
    la    $at,s2
    sw    $a0,0($at)  # But we need to use these registers
-
-   mfc0  $k0,$13     # Cause register
-   srl   $a0,$k0,2   # Extract ExcCode Field
-   andi  $a0,$a0,0x1f
 
 # Print information about exception.
 #
@@ -95,6 +91,7 @@ pexit:   .asciiz "\nProgram terminated with exit code "
    syscall
 
    li    $v0,1       # syscall 1 (print_int)
+   mfc0  $k0,$13     # Cause register
    srl   $a0,$k0,2   # Extract ExcCode Field
    andi  $a0,$a0,0x1f
    syscall
@@ -102,8 +99,8 @@ pexit:   .asciiz "\nProgram terminated with exit code "
    li    $v0,4       # syscall 4 (print_str)
    andi  $a0,$k0,0x3c
    la    $at, __excp
+   add   $at, $at, $a0
    lw    $a0,0($at)
-   nop
    syscall
 
    bne   $k0,0x18,ok_pc # Bad PC exception requires special checks
