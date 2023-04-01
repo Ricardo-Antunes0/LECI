@@ -1,0 +1,69 @@
+Gestao de atletas de fisiculturismo
+
+
+
+
+
+
+
+
+Entidades: 
+		Atletas(nome,idade,genero,peso,data_insc,modalidade,categoria,n_atleta,fk_n_treinador,restrc_alimentacao,restrc_treino)
+		treinadores(nome,n_treinador,fk_N_atleta,modalidade,max_atletas)
+		ginasio(NIF,nome,equipamentos,fk_n_atleta)
+		plano_alimentacao(alimentacao,fk_n_atleta)
+		plano_treino(data,treino,fk_n_atleta)
+		foto(img,FK_n_atleta,FK_n_treinador, data)	
+
+
+
+
+
+
+----------Analise de requisitos---------
+	Problema
+
+	A organização de uma empresa de gestao de atletas de fisiculturismo pode ser um problema, tanto para os treinadores como para os atletas.
+	Por exemplo, os atletas pretendem competir mas pra isso precisam de ajuda na sua alimentacao e no seu treino(bem como a JARDAAAAAAA CC: joni fernandes).
+	Por outro lado , os treinadores precisam saber a modalidade à qual cada atleta vai participar , bem como as restricoes de alimentacao, o tipo de treino,ha quanto temppo treina , evolucao do fisico.Ou seja , tem de ser feito um plano adequado a cada atleta pois o corpo de cada fisiculturista reage e deve ser tratado de forma diferente.
+	Um gestor de atletas de fisiculturismo tem de ser bem planeado de forma a que os treinadores possam tirar o melhor rendimento dos seus atletas de maneira a que os seus atletas alcancem os seus objetivos.
+
+
+	Oportunidade
+
+	Surgiu assim uma oportunidade para desenvolver uma base de dados de modo a gerir atletas de fisiculturismo.
+	Esta base de dados VAI permitir guardar toda a informacao acerca dos seus treinadores e respetivos atletas, bem como a sua alimentacao, o treino, e um portofolio associado a cada atleta de forma a visualizar se os resultados estao de acordo com o expectado.
+
+	Requisitos
+
+		- os utilizadores deste sistema conseguem:
+
+			-adicionar/editar/remover atletas e toda a informacao associada aos mesmos
+			-adicionar/editar/remover treinadores e toda a informacao associada aos mesmos
+			-adicionar/editar/remover planos de treino
+			-adicionar/editar/remover planos de alimentacao
+			-adicionar/editar/remover fotos
+			-adicionar/editar/remover ginasios
+			-consultar planos de treino
+			-consultar planos de alimentacao
+			-consultar as fotos
+			-Consultar a marcacao de treinos com os treinadores
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
