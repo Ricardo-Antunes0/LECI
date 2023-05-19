@@ -1,0 +1,41 @@
+# BD: Guião 7
+
+
+## ​7.2 
+ 
+### *a)*
+A relação está na 1FN, pois os atributos são atómicos e não existe relações Nested (relação dentro de uma relação)
+Esta não está na 2FN devido a ter dependências parciais (Nome_Autor -> Afiliacao_autor).
+
+```
+### *b)*
+
+Para estar na 2FN, não podem existir dependências parciais. É encontra uma dependência parcial entre Nome_Autor (Chave) e Afiliação_Autor. Separa-se numa nova tabela L2 (Nome_Autor, Afiliação_Autor).
+
+Para estar na 3FN, não podem existir dependências transitivas. Criando as tabelas L3 (Editor, Endereço_Editor) e L4 (Tipo_Livro, NoPaginas, Preço) eliminamos as respetivas dependências.
+
+```
+
+
+## 7.3
+### *a)*
+
+A chave de R é {A,B}. Todos os elementos dependem destes atributos e estes não dependem dos outros.
+
+```
+
+## 7.4
+### *a)*
+
+A chave de R é {A,B}.
+
+```
+
+## 7.5
+### *a)*
+
+A chave de R é {A,B}.
+
+```
+
+
