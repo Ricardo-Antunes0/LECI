@@ -17,7 +17,7 @@ CREATE TABLE ginasio.Atleta (
 	Nome VARCHAR(30) NOT NULL, 
 	Idade INT NOT NULL,
 	Genero CHAR(1) NOT NULL, 
-	Modalidade VARCHAR(30) NOT NULL CHECK(Modalidade IN (' Men’s Bodybuilding','Men’s Physique', 'Classic Physique', 'Bikini Fitness', 'Wellness Fitness'),
+	Modalidade VARCHAR(30) NOT NULL CHECK(Modalidade IN (' Menâ€™s Bodybuilding','Menâ€™s Physique', 'Classic Physique', 'Bikini Fitness', 'Wellness Fitness'),
 	Categoria VARCHAR(30),
 	Data_inscricao DATE,
 	Restricao_alimentar VARCHAR(45),
@@ -30,7 +30,7 @@ CREATE TABLE ginasio.Atleta (
 CREATE TABLE ginasio.Treinador(
 	Numero_atletas INT NOT NULL CHECK ( Numero_atletas <= 10),
 	ID_treinador INT NOT NULL PRIMARY KEY,	
-	Modalidade VARCHAR(30) NOT NULL CHECK(Modalidade IN(' Men’s Bodybuilding','Men’s Physique', 'Classic Physique', 'Bikini Fitness', 'Wellness Fitness')),
+	Modalidade VARCHAR(30) NOT NULL CHECK(Modalidade IN(' Menâ€™s Bodybuilding','Menâ€™s Physique', 'Classic Physique', 'Bikini Fitness', 'Wellness Fitness')),
 	CONSTRAINT TreinadorFK 
 		FOREIGN KEY (ID_treinador) REFERENCES ginasio.Pessoa(ID) ON DELETE CASCADE  -- ver isto melhor
 );
@@ -65,15 +65,3 @@ CREATE TABLE ginasio.Pertence();
 CREATE TABLE ginasio.Ginasio();
 
 CREATE TABLE ginasio.Fotos();
-
-
--- Sor disse para fazermos o DDL, um dml +/- complexo (atualizar, criar tuplos, remover), dps fazer a interface e aseguir criar triggers e criar constraints
--- usar indices e script para ver os dados inseridos
--- disse que cursors se n valer a pena n fazer, mas triggers fazer
--- Para a apresnetacao explicar uma query para as tabelas, uma query para criar dados para a interface e ter a interface, e tmb triggers
--- dps para a entrega, meter udfs, stored procedures, etc
-
-
---FORMULARIO -> PAGINA PARA GERIR ATLETA ( ADICIONAR, REMOVER E EDITAR ATLETA ) EXEMPLO DE FORMULARIO
---complexidade-> Query complexas com inner joins 
---
